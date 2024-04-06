@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+            font-family: 'Ysabeau Infant', sans-serif;
+        }
+
+        body {
+            background: url("https://images.squarespace-cdn.com/content/v1/583ca2f2d482e9bbbef7dad9/1485838058393-7TTHGDWIQI5ATHQF0CBA/operation-community-water-footprint.jpg?format=2500w");
+            background-position: center;
+            background-size: cover;
+            z-index: -1;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            border: 1px solid black;
+            padding: 30px;
+
+            background-color: white;
+        }
+
+        label {
+            margin-bottom: 3px;
+        }
+
+        .box input,
+        select {
+            width: 193px;
+            padding: 7px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        input[type="email"] {
+            cursor: not-allowed;
+        }
+
+        .box div {
+            width: 200px;
+            display: flex;
+            padding: 7px;
+            flex-direction: column;
+        }
+
+        .container {
+            max-height: 200vh;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            border: 1px solid black;
+            cursor: pointer;
+            background: none;
+            width: fit-content;
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 30px;
+            color: red;
+            margin-bottom: 40px;
+            z-index: 10;
+        }
+
+        .b1 {
+            display: flex;
+            align-items: center;
+        }
+
+        button:hover {
+            background-color: orangered;
+            border: 0px;
+            color: white;
+        }
+
+        @media only screen and (max-width: 500px) {
+            .container {
+                height: 140vh;
+            }
+
+            h1 {
+                margin: 10px;
+                width: 100%;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hello ,<%= name %>
+        </h1>
+        <div>
+            <div class="box">
+                <div>
+                    <input type="email" name="email" id="email" disabled value="<%= email %>" />
+                </div>
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" placeholder="Enter the Full Name" name="name" id="name" />
+                </div>
+                <div>
+                    <label for="phone">Phone Number:</label>
+                    <input type="number" name="phone" id="number" placeholder="Enter Mobile Number" />
+                </div>
+                <div>
+                    <label for="pass">Password:</label>
+                    <input type="password" name="pass" placeholder="Enter the Password" id="pass" />
+                </div>
+                <div>
+                    <label for="cpass">Confirm Password:</label>
+                    <input type="text" name="cpass" placeholder="Enter the Password Again" id="cpass" />
+                </div>
+                <div>
+                    <label for="state">State:</label>
+                    <select id="state" name="states">
+                        <option value="Select">Select</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option value="Andaman and Nicobar Islands">
+                            Andaman and Nicobar Islands
+                        </option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Dadra and Nagar Haveli and Daman and Diu">
+                            Dadra and Nagar Haveli and Daman and Diu
+                        </option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Puducherry">Puducherry</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="district">District:</label>
+                    <input type="text" name="district" placeholder="Enter the District" id="district" />
+                </div>
+                <div class="b1">
+                    <button id="ok">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector("#ok").addEventListener("click", function (event) {
+            var email = document.querySelector('#email').value;
+            var password = document.querySelector('#pass').value;
+            var cpassword = document.querySelector('#cpass').value;
+            var number = document.querySelector('#number').value;
+            var name = document.querySelector('#name').value;
+            var state = document.querySelector('#state').value;
+            var district = document.querySelector('#district').value;
+            var a = String(number)[0];
+            if (name === '') {
+                alert('Please enter the full name');
+            }
+            else if (number === '') {
+                alert("Please enter the phone number");
+            }
+            else if (password === '') {
+                alert("Please enter the password");
+            }
+            else if (cpassword === '') {
+                alert("Please enter the conform password");
+            }
+            else if (state === 'Select') {
+                alert("select the state");
+            }
+            else if (district === '') {
+                alert("Enter the district")
+            }
+            else if (password != cpassword) {
+                alert("password and conform password are not the same");
+            }
+            else if (!isValidPassword(password)) {
+                alert("password must contain 1 small and 1 captial character,a number,a special character");
+            }
+            else if (String(number).length != 10) {
+                alert("Phone number must be 10 numbers");
+            }
+            else if (!(a === '6' || a === '7' || a === '8' || a === '9')) {
+                alert("Phone number must be starting with 6,7,8,9");
+            }
+            else {
+                fetch('/empregister/' + email + '/' + name + '/' + number + '/' + password + '/' + state + '/' + district)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("Registered successfully");
+                            window.location.href = '/emplogin';
+                        }
+                        else {
+                            alert('Please try again');
+                        }
+                    })
+            }
+        });
+        function isValidPassword(password) {
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
+            return passwordRegex.test(password);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Pollution</title>
+    <link rel="stylesheet" href="userhome.css">
+    <link rel="shortcut icon" href="zidm.png" type="image/x-icon">
+</head>
+
+<body>
+    <div>
+        <div class="nav big">
+            <div class="nav1">
+                <div><button><img src="zidm.png" alt=""></button></div>
+            </div>
+            <div class="log10">
+                <div class="log12"><button onclick="change('home.html');">Home</button></div>
+                <div class="log12">
+                    <button  id="ho">User&nbsp;&nbsp;</button>
+                    <div id="ho1">
+                        <button onclick="change('ulogin.html');">Login</button>
+                        <button onclick="change('usignup.html');">Sign&nbsp;Up</button>
+                    </div>
+                </div>
+                <div class="log12">
+                    <button id="ho">Company</button>
+                    <div id="ho1">
+                        <button onclick="change('companylogin.html');">Login</button>
+                        <button onclick="change('form.html');">Sign&nbsp;Up</button>
+                    </div>
+                </div>
+                <div class="log12"><button onclick="change('aboutus.html');">About&nbsp;Us</button></div>
+                <div class="log12"><button onclick="change('login.html');">Employee</button></div>
+
+            </div>
+        </div>
+        <div class="left">
+            <div class="close">
+                <div><button><img src="close.png" alt="" id="cls"></button></div>
+            </div>
+            <div class="left1">
+                <div><button onclick="change('home.html');" id="cls1">Home</button></div>
+                <div><button onclick="change('aboutus.html');" id="cls2">About&nbsp;Us</button></div>
+                <div id="cls3">
+                    <button id="ho4">Company</button>
+                    <div id="ho3">
+                        <button onclick="change('companylogin.html');" id="cls5">Login</button>
+                        <button onclick="change('form.html');" id="cls6">Sign&nbsp;Up</button>
+                    </div>
+                </div>
+                <div id="cls3">
+                    <button id="ho4">User</button>
+                    <div id="ho3">
+                        <button onclick="change('ulogin.html');" id="cls7">Login</button>
+                        <button onclick="change('usignup.html');" id="cls8">Sign&nbsp;Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav small">
+            <div class="nav1">
+                <div><button><img src="zidm.png" alt=""></button></div>
+            </div>
+            <div class="log5">
+                <div><button id="baropen"><img src="menu.gif" alt=""></button></div>
+            </div>
+        </div>
+        <div class="mid">
+            <iframe src="home.html" class="frame" frameborder="0" width="100%" height="700px" scrolling="yes"></iframe>
+        </div>
+    </div>
+    <div>
+        <iframe src="footer.html" class="frame" frameborder="0" width="100%" height="320px" scrolling="yes"></iframe>
+    </div>
+    <script src="userscript.js"></script>
+    <script>
+        document.querySelector('#baropen').addEventListener('click', function (eve) {
+            document.querySelector('.left').style.display = 'block';
+        });
+    </script>
+
+</body>
+
+</html>

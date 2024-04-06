@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            font-size: medium;
+            margin: 10px;
+        }
+        table{
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="h"></h1>
+    <table>
+        <tr>
+            <th>Qualitative Name</th>
+            <th>Index</th>
+            <th>SO2 (μg/m3)</th>
+            <th>NO2 (μg/m3)</th>
+            <th>PM10 (μg/m3)</th>
+            <th>PM2.5 (μg/m3)</th>
+            <th>O3 (μg/m3)</th>
+            <th>CO (μg/m3)</th>
+        </tr>
+        <tr>
+            <td>Good</td>
+            <td>1</td>
+            <td>[0; 20]</td>
+            <td>[0; 40]</td>
+            <td>[0; 20]</td>
+            <td>[0; 10]</td>
+            <td>[0; 60]</td>
+            <td>[0; 4400]</td>
+        </tr>
+        <tr>
+            <td>Fair</td>
+            <td>2</td>
+            <td>[20; 80]</td>
+            <td>[40; 70]</td>
+            <td>[20; 50]</td>
+            <td>[10; 25]</td>
+            <td>[60; 100]</td>
+            <td>[4400; 9400]</td>
+        </tr>
+        <tr>
+            <td>Moderate</td>
+            <td>3</td>
+            <td>[80; 250]</td>
+            <td>[70; 150]</td>
+            <td>[50; 100]</td>
+            <td>[25; 50]</td>
+            <td>[100; 140]</td>
+            <td>[9400-12400]</td>
+        </tr>
+        <tr>
+            <td>Poor</td>
+            <td>4</td>
+            <td>[250; 350]</td>
+            <td>[150; 200]</td>
+            <td>[100; 200]</td>
+            <td>[50; 75]</td>
+            <td>[140; 180]</td>
+            <td>[12400; 15400]</td>
+        </tr>
+        <tr>
+            <td>Very Poor</td>
+            <td>5</td>
+            <td>⩾350</td>
+            <td>⩾200</td>
+            <td>⩾200</td>
+            <td>⩾75</td>
+            <td>⩾180</td>
+            <td>⩾15400</td>
+        </tr>
+    </table>
+    <table id="t">
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>AQI</th>
+            <th>CO2</th>
+            <th>SO2</th>
+            <th>O3</th>
+            <th>NO2</th>
+            <th>PM2_5</th>
+            <th>PM10</th>
+        </tr>
+    </table>
+    <script>
+        const getloc = () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((pos) => {
+                    x = "https://api.opencagedata.com/geocode/v1/json?q=" + String(pos.coords.latitude) + "+" + String(pos.coords.longitude) + "&key=43c39ab498474c3e8ba3cae945ba9f07"
+                    fetch(x)
+                        .then(res => res.json())
+                        .then(data => {
+                            document.querySelector("#h").innerHTML = data.results[0].formatted;
+                            loc(pos.coords.latitude, pos.coords.longitude)
+                        })
+                })
+            }
+        }
+        getloc();
+    </script>
+    <script>
+        function unixTimestampToDateTime(unixTimestamp) {
+            const date = new Date(unixTimestamp * 1000);
+            const year = date.getFullYear().toString().substr(-2);
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const day = date.getDate().toString().padStart(2, '0');
+            const hours = date.getHours().toString().padStart(2, '0');
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            const seconds = date.getSeconds().toString().padStart(2, '0');
+            const dateString = `${day}/${month}/${year}`;
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            return { date: dateString, time: timeString };
+        }
+        var table = document.querySelector('#t');
+        const unixTimestamp = 1609459200;
+        const dateTime = unixTimestampToDateTime(unixTimestamp);
+        console.log(dateTime);
+        const loc = (lat, lan) => {
+            const currentTimeMillis = Date.now();
+            const oneWeekMillis = 5 * 24 * 60 * 60 * 1000;
+            const oneWeekBeforeMillis = currentTimeMillis - oneWeekMillis;
+            const end = Math.floor(currentTimeMillis / 1000);
+            const start = Math.floor(oneWeekBeforeMillis / 1000);
+            fetch(`http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${lat}&lon=${lan}&start=${start}&end=${end}&appid=e4b73327f5cf309d6a7fd76918cfe3e9`)
+                .then(res => res.json())
+                .then(data => {
+                    var d = data.list;
+                    for (var i = 0; i < d.length; i++) {
+                        var tr = document.createElement("tr");
+                        var date=unixTimestampToDateTime(d[i].dt);
+                        var td=document.createElement("td");
+                        td.innerHTML = date.date;
+                        tr.appendChild(td);
+                        var td=document.createElement("td");
+                        td.innerHTML = date.time;
+                        tr.appendChild(td);
+                        var td=document.createElement("td");
+                        td.innerHTML = d[i].main.aqi;
+                        tr.appendChild(td);
+                        var td=document.createElement("td");
+                        td.innerHTML = d[i].components.co;
+                        tr.appendChild(td);
+                        var td=document.createElement("td");
+                        td.innerHTML = d[i].components.so2;
+                        tr.appendChild(td);
+                        var td=document.createElement("td");
+                        td.innerHTML = d[i].components.o3;
+                        tr.appendChild(td);
+                        var td=document.createElement("td");
+                        td.innerHTML = d[i].components.no2;
+                        tr.appendChild(td);
+                        var td = document.createElement("td");
+                        td.innerHTML = d[i].components.pm2_5;
+                        tr.appendChild(td);
+                        var td = document.createElement("td");
+                        td.innerHTML = d[i].components.pm10;
+                        tr.appendChild(td);
+                        table.appendChild(tr);
+                    }
+
+                })
+        }
+    </script>
+
+</body>
+
+</html>

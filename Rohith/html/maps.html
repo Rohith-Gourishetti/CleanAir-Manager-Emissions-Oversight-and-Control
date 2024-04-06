@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bing Maps Example</title>
+    <script type='text/javascript'
+        src='https://www.bing.com/api/maps/mapcontrol?callback=loadMapScenario&key=AiC1qVLXKpSFxhgf2KNCr7CA33PWQaysMCpSKRgcM4EUycexYS274b4qVKF7ApzK'
+        async defer></script>
+    <style>
+        body {
+            margin: 30px;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        #myMap {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media(min-width: 768px) {
+            #myMap {
+                height: 400px;
+            }
+        }
+    </style>
+    <script>
+        function loadMapScenario() {
+            fetch("/maps")
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+                            credentials: 'AiC1qVLXKpSFxhgf2KNCr7CA33PWQaysMCpSKRgcM4EUycexYS274b4qVKF7ApzK',
+                            zoom: 4
+                        });
+                        var locations = data.user;
+                        locations.forEach(function (location) {
+                            var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(location.lat, location.lan), {
+                                title: location.name
+                            });
+
+                            map.entities.push(pin);
+                        });
+                    } else {
+                        alert("Failed to load the maps");
+                    }
+                });
+        }
+    </script>
+</head>
+
+<body>
+    <div id="myMap"></div>
+</body>
+
+</html>

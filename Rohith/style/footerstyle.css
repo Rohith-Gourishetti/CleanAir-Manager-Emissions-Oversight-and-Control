@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.footer {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), black);
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 30px;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: larger;
+}
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.social {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.follow img {
+    width: 30px;
+}
+
+.follow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.follow p {
+    margin-left: 40px;
+}
+
+.subscribe {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    flex-direction: column;
+}
+
+.subscribe input {
+    border: 3px solid red;
+    border-radius: 30px;
+    width: 250px;
+    padding: 10px 13px;
+    background-color: aliceblue;
+    color: black;
+}
+
+.subscribe input:focus-within {
+    outline: 0px solid orange;
+}
+
+.subscribe button {
+    color: white;
+    border: 0;
+    border-radius: 30px;
+    width: 200px;
+    font-size: larger;
+    margin-top: 30px;
+    padding: 10px 10px;
+    cursor: pointer;
+    background-color: #04AA6D;
+}
+
+.subscribe div {
+    display: flex;
+    justify-content: center;
+}
+
+.social1 {
+    margin-top: 50px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.support {
+    margin-top: 50px;
+}
+
+.support a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px
+}
+
+.support a:hover {
+    text-decoration: underline;
+}
+
+.support img {
+    width: 50px;
+    color: white;
+}
+
+.support div {
+    display: flex;
+    align-items: center;
+}
+
+.support p {
+    margin-left: 20px;
+}
+
+.copy p {
+    color: white;
+    text-align: center;
+}
+
+.copy {
+    background-color: black;
+    overflow: hidden;
+}
+.sub{
+    padding: 30px 0px;
+}

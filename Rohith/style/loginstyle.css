@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ysabeau+Infant:wght@300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Ysabeau Infant', sans-serif;
+}
+.for div img{
+    width: 30px;
+}
+.in{
+    display: flex;
+    margin-top: 30px;
+}
+.log{
+    width: 100%;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+}
+input[type='email'] {
+    width: 240px;
+    margin-left:10px;
+    border-width:0 0 2px 0;
+    outline: 0;
+    font-size: large;
+}
+input[type='password']{
+    width: 200px;
+    margin-left:10px;
+    border-width:0 0 2px 0;
+    outline: 0;
+    font-size: large;
+}
+input[type='text']{
+    width: 200px;
+    margin-left:10px;
+    border-width:0 0 2px 0;
+    outline: 0;
+    font-size: large;
+}
+.eye{
+    cursor: pointer;
+}
+
+.log2{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.for{
+    border: 3px solid rgba(0, 0, 0, 0.37);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+button {
+    border: 0;
+    background: transparent;
+}
+.sub{
+    margin-top:30px;
+    text-align: center;
+    background-color: orangered;
+    color: white;
+    padding: 10px 0px;
+}
+.sub button{
+    color: white;
+    font-size: larger;
+    cursor: pointer;
+}
+.log3{
+    text-align: center;
+    font-size: 50px;
+}
+.new{
+    text-align: right;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.new a{
+    text-decoration: none;
+}
+.new a:hover{
+    text-decoration: underline;
+}
+@media only screen and (max-width: 500px) {
+    input[type='email']{
+        width: 170px;
+        margin-left:10px;
+        border-width:0 0 2px 0;
+        outline: 0;
+        font-size:medium;
+    }
+    input[type='password']{
+        width: 130px;
+        margin-left:10px;
+        border-width:0 0 2px 0;
+        outline: 0;
+        font-size:medium;
+    }
+    input[type='text'] {
+        width: 130px;
+        margin-left:10px;
+        border-width:0 0 2px 0;
+        outline: 0;
+        font-size: medium;
+    }
+    #pass2{
+        width: 130px;
+        margin-left:10px;
+        border-width:0 0 2px 0;
+        outline: 0;
+        font-size: medium;
+    }
+    .log3{
+        font-size: larger;
+    }
+}

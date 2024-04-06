@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ysabeau+Infant:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Ysabeau Infant', sans-serif;
+}
+.container{
+    display: flex;
+    max-width:500px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    padding:20px;
+    margin: 30px;
+    max-height: 300px;
+    background-color: white;
+    justify-content: center;
+    overflow:auto;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+}
+.b1{
+    display: flex;
+}
+.b1 h1{
+    margin: 5px;
+}
+.b2 button{
+    background: transparent;
+    border: 1px solid black;
+    padding: 10px;
+    font-size: large;
+    width: 82px;
+    margin-top: 5px;
+}
+button:hover{
+    cursor: pointer;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+.head{
+    display: flex;
+    
+}
+.box2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 30px;
+    max-height: 300px;
+}
+.vis{
+    display: none;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin-top: 30px;
+}
+.vis1{
+    background: white;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.vis2 button{
+    background:rgba(0, 0, 255, 0.562);
+    color: white;
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+    border: 1px solid black;
+    padding: 10px;
+    font-size: large;
+}
+.vis2 textarea{
+    padding: 10px;
+    font-size: large;
+}
+.vis3{
+    display: flex;
+    align-items: flex-end !important;
+    justify-content: flex-end !important;
+}
+.close button {
+    background: transparent;
+    border: 0;
+    margin-bottom: 10px;
+
+}
+.close{
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: flex-end !important;
+}
+.close img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}

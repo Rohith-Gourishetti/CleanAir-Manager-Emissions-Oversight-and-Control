@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ysabeau+Infant:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Ysabeau Infant', sans-serif;
+}
+
+.nav button {
+    border: 0;
+    background: transparent;
+    font-size: larger;
+    height: 65px;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+.log12 button:hover {
+    background-color: #0275dd;
+    transform: scale(1.1);
+    color: white;
+}
+
+.log15 button:hover {
+    background-color: #0275dd;
+    transform: scale(1);
+    color: white;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 9;
+    height: 60px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    background-color: white;
+}
+
+.log10 {
+    display: flex;
+}
+
+.log10 img {
+    width: 45px;
+    height: 50px;
+}
+
+.nav1 {
+    display: flex;
+    z-index: 9;
+}
+
+.nav1 button img {
+    width: 50px;
+    height: 50px;
+}
+
+.left {
+    position: absolute;
+    z-index: 10;
+    height: 100vh;
+    width: 120px;
+    display: none;
+    position: fixed;
+    background-color: white;
+}
+
+.left1 button {
+    border: 0;
+    background: transparent;
+    font-size: larger;
+    height: 65px;
+    width: 100%;
+    padding-left: 15px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.left1 {
+    margin-top: 100px;
+}
+
+.left1 button:hover {
+    background-color: #0275dd;
+    transform: scale(1.1);
+    color: white;
+}
+
+.close button {
+    background: transparent;
+    border: 0;
+    float: right;
+}
+
+.close img {
+    width: 20px;
+    margin-top: 30px;
+    margin-right: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+#baropen img {
+    width: 45px;
+    height: 45px;
+}
+
+.small {
+    display: none;
+}
+
+#ho:hover+#ho1,
+#ho1:hover {
+    display: flex;
+}
+
+.log12 {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#ho1{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    top: 97%;
+    left: 50px;
+    z-index: -1;
+}
+
+#ho3{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    left: 100%;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+}
+#cls3{
+    position: relative;
+}
+#ho4:hover+#ho3,
+#ho3:hover {
+    display: flex;
+}
+@media only screen and (max-width: 500px) {
+    .small {
+        display: flex;
+    }
+
+    .big {
+        display: none;
+    }
+}

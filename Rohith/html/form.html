@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+            font-family: 'Ysabeau Infant', sans-serif;
+        }
+
+        body {
+            margin: 100px 0px;
+            background-position: center;
+            background-size: cover;
+            z-index: -1;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            border: 1px solid black;
+            padding: 30px;
+            background-color: white;
+        }
+
+        label {
+            margin-bottom: 3px;
+        }
+
+        .box input,
+        select {
+            width: 193px;
+            padding: 7px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        .box div {
+            width: 200px;
+            display: flex;
+            padding: 7px;
+            flex-direction: column;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            border: 1px solid black;
+            cursor: pointer;
+            background: none;
+            width: fit-content;
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 30px;
+            color: red;
+            margin-bottom: 40px;
+            z-index: 10;
+        }
+
+        .b1 {
+            display: flex;
+            align-items: center;
+        }
+
+        button:hover {
+            background-color: orangered;
+            border: 0px;
+            color: white;
+        }
+
+        textarea {
+            width: 190px;
+            height: 88px;
+        }
+
+        @media only screen and (max-width: 500px) {
+            .container {
+                height: 140vh;
+            }
+
+            h1 {
+                margin: 10px;
+                width: 100%;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome To Registration</h1>
+        <div>
+            <div class="box">
+                <div>
+                    <label for="name">Company Email:</label>
+                    <input type="email" name="email" id="email" placeholder="Enter the mail" />
+                </div>
+                <div>
+                    <label for="name">Company Name:</label>
+                    <input type="text" placeholder="Enter the Full Name" name="name" id="name" />
+                </div>
+                <div>
+                    <label for="phone">Company Phone Number:</label>
+                    <input type="number" name="phone" id="number" placeholder="Enter Mobile Number" />
+                </div>
+                <div>
+                    <label for="file">Upload the file:</label>
+                    <input type="file" name="file" placeholder="Enter the District" id="file" accept=".pdf" />
+                </div>
+                <div class="b1">
+                    <button id="ok">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector("#ok").addEventListener("click", async function () {
+            var email = document.querySelector('#email').value;
+            var name = document.querySelector('#name').value;
+            var number = document.querySelector('#number').value;
+            var fileInput = document.querySelector('#file');
+            let lan, lat;
+            function getGeolocation() {
+                return new Promise((resolve, reject) => {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(
+                            function (position) {
+                                lat = position.coords.latitude;
+                                lan = position.coords.longitude;
+                                resolve();
+                            },
+                            function (error) {
+                                reject(error);
+                            }
+                        );
+                    } else {
+                        reject(new Error('Geolocation is not supported by this browser.'));
+                    }
+                });
+            }
+            if (!fileInput.files || fileInput.files.length === 0) {
+                alert('Please upload a file');
+            } else if (name === '') {
+                alert('Please enter the full name');
+            } else if (number === '') {
+                alert("Please enter the phone number");
+            } else if (!isValidEmail(email)) {
+                alert("Enter a valid email address");
+            }
+            else {
+                try {
+                    await getGeolocation();
+                    var checkUserResponse = await fetch('/cuser/' + email);
+                    var userData = await checkUserResponse.json();
+                    if (userData.success) {
+                        alert("User already registered. Check your email.");
+                        return;
+                    }
+                    var file = fileInput.files[0];
+                    var formData = new FormData();
+                    formData.append('email', email);
+                    formData.append('name', name);
+                    formData.append('number', number);
+                    formData.append('lan', lan);
+                    formData.append('lat', lat);
+                    formData.append('file', file);
+                    formData.append('fileName', name + '.pdf');
+                    var response = await fetch('/cform', {
+                        method: 'POST',
+                        body: formData,
+                    });
+                    var data = await response.json();
+                    if (data.success) {
+                        alert('Registered successfully');
+                        parent.window.location.href = '/';
+                    } else {
+                        alert('Registration failed. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Internal Server Error. Please try again later.');
+                }
+            }
+        });
+        function isValidEmail(email) {
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+*{
+    padding: 10px;
+    margin: 0;
+}
+
+body{
+    background-color: aliceblue;
+}
+
+.head{
+    align-items: center;
+    display: block  ;
+    padding: 20px;
+}
+
+.full{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.tit{
+    margin: 20px;
+    border-radius: 5px;
+    background-color: aqua;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.mems{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.mem{
+    text-align: center;
+    box-shadow: rgb(58, 114, 138) 0px 2px 4px 0px, rgba(73, 132, 157, 0.32) 0px 2px 16px 0px;    
+    background-color: rgb(95, 234, 234);
+    align-items: center;
+    margin: 10px;
+}

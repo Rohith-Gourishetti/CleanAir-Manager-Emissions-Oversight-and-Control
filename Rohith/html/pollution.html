@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .head{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            height: 700px;
+            align-items: center;
+            justify-content: center;
+        }
+        button{
+            margin: 10px;
+            padding: 10px;
+            font-size: larger;
+            background: transparent;
+            border: 1px solid orangered;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <div><button onclick="change('index1.html');" id="cls3" class="lan1">Address</button></div>
+        <div><button onclick="change('index2.html');" id="cls3" class="lan1">Location</button></div>
+    </div>
+</body>
+<script>
+    function change(a){
+        window.location.href=a;
+    }
+</script>
+</html>

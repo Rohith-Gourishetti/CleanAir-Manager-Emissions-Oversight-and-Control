@@ -1,0 +1,42 @@
+
+body{
+    position: relative;
+}
+.fulle{
+    display: flex;
+    flex-direction: column;
+}
+.box{
+    border-radius: 10px;
+    width: fit-content;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding:10px;
+    background-color: aliceblue;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+h1{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border: 0px;
+    padding: 30px;
+    border-radius: 100%;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+}
+h1:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+h1 button{
+    background: transparent;
+    border: 0;
+    font-size: 30px;
+    cursor: pointer;
+}

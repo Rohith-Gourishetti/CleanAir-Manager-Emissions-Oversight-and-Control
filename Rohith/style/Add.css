@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5px;
+}
+
+.tot{
+    width: 100%;
+    position: absolute;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.addf{
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background-color: aliceblue;
+}
+
+.hea{
+    align-self: center;
+}
+
+.loc{
+    display: flex;
+    flex-direction: column;
+}
+
+.buto{
+    align-self: center;
+}
+
+.vis{
+    display: none;
+    flex-direction: column;
+}
+
+button{
+    background-color: aqua;
+}

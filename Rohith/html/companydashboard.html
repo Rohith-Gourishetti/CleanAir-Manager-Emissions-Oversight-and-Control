@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboardstyle.css">
+    <link rel="stylesheet" href="indexstyle.css">
+</head>
+<body>
+    <div class="left">
+        <div class="close">
+            <div><button style="background: transparent;border: 0;">
+                <img src="close.png" alt="" id="cls"></button></div>
+        </div>
+        <div class="left1">
+            <div><button onclick="change('home.html');" id="cls1">Home</button></div>
+            <div><button onclick="change('cprofile.html');" id="cls3">Profile</button></div>
+            <div><button onclick="change('aboutus.html');" id="cls4">AboutUs</button></div>
+            <div><button id="cls4"><a href="/clogout">Logout</a></button></div>
+        </div>
+    </div>
+    <div class="head">
+        <div>
+            <img src="zidm.png" alt="" srcset="" width="50px">
+        </div>
+        <div>
+            <div><button id="baropen1" style="background: transparent;border: 0;"><img src="menu.gif" alt="" srcset="" width="50px"></button></div>
+        </div>
+    </div>
+    <div>
+        <iframe src="home.html" class="frame" frameborder="0" width="100%" height="700px" scrolling="yes" scrolling="yes"></iframe>
+    </div>
+    <div>
+        <iframe src="footer.html" class="frame" frameborder="0" width="100%" height="320px"
+            scrolling="yes"></iframe>
+    </div>
+    <script src="cindexscript.js"></script>
+</body>
+</html>
